@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route; // <--- ADD THIS LINE
 
 use Illuminate\Support\Facades\Cache;
 
@@ -46,4 +47,9 @@ Route::get('/cache-has-site', function () {
 Route::get('/cache-get-site', function(){
     $valeur2 = Cache::get('site', 'Valeur non trouvee');
     return "valeur dans le cache : " . $valeur2;
+});
+
+
+Route::get('/welcome/{name}', function($name){
+    return Welcome::greet($name);
 });
